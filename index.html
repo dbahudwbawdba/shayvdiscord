@@ -1,153 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shayv | Discord Server Builder</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shayv | Discord Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-glow: rgba(124, 58, 237, 0.5);
+            --accent: #3b82f6;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
 
-<style>
+        * {
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
 
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#0f172a;
-color:white;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-header{
-background:#1e293b;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+        header {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-header h1{
-color:#7c3aed;
-}
+        header h1 {
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
 
-nav a{
-margin-left:20px;
-color:white;
-text-decoration:none;
-}
+        nav a {
+            margin-left: 25px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
-.hero{
-text-align:center;
-padding:80px 20px;
-}
+        nav a:hover {
+            color: var(--primary);
+        }
 
-.hero h2{
-font-size:40px;
-}
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.btn{
-background:#7c3aed;
-padding:15px 30px;
-border-radius:10px;
-text-decoration:none;
-color:white;
-display:inline-block;
-margin-top:20px;
-}
+        .hero h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-.section{
-padding:60px 20px;
-max-width:1000px;
-margin:auto;
-}
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+        .btn {
+            background: var(--primary);
+            padding: 16px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 0 10px 20px var(--primary-glow);
+        }
 
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:10px;
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px var(--primary-glow);
+            filter: brightness(1.1);
+        }
 
-footer{
-text-align:center;
-padding:30px;
-background:#020617;
-margin-top:50px;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-</style>
+        .section-title h2 {
+            font-size: 2.5rem;
+        }
+
+        .section {
+            padding: 100px 10%;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-dim);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            color: var(--text-dim);
+        }
+
+        ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li::before {
+            content: "✓";
+            color: var(--primary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: var(--card-bg);
+            height: 200px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--text-dim);
+            color: var(--text-dim);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            background: #020617;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-dim);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-<h1>Shayv</h1>
-<nav>
-<a href="#services">Services</a>
-<a href="#portfolio">Portfolio</a>
-<a href="#contact">Contact</a>
-</nav>
+    <h1>SHAYV</h1>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
-<h2>Professional Discord Server Builder</h2>
-<p>I create clean, professional Discord servers with bots, roles and automation.</p>
-
-<a class="btn" href="https://discord.gg/YOURINVITE" target="_blank">Join My Discord</a>
+    <h2>Elevate Your <span style="color:var(--primary)">Discord</span> Community</h2>
+    <p>I design high-conversion Discord environments with advanced automation, professional aesthetics, and airtight security.</p>
+    <a class="btn" href="https://discord.gg/YOURINVITE">Launch Your Server</a>
 </section>
 
 <section id="services" class="section">
+    <div class="section-title">
+        <h2>Service Tiers</h2>
+    </div>
 
-<h2>Services</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Essential</h3>
+            <div class="price">€15 <span>/one-time</span></div>
+            <ul>
+                <li>Clean Category Structure</li>
+                <li>Role Hierarchy Setup</li>
+                <li>Permission Optimization</li>
+                <li>Basic Welcome Message</li>
+            </ul>
+        </div>
 
-<div class="cards">
+        <div class="card" style="border-color: var(--primary); transform: scale(1.05);">
+            <div style="position:absolute; top:15px; right:15px; background:var(--primary); font-size:10px; padding:5px 10px; border-radius:20px;">POPULAR</div>
+            <h3>Pro Setup</h3>
+            <div class="price">€45 <span>/one-time</span></div>
+            <ul>
+                <li>Everything in Essential</li>
+                <li>Advanced Bot Config (Auto-Mod)</li>
+                <li>Professional Ticket System</li>
+                <li>Reaction Roles</li>
+            </ul>
+        </div>
 
-<div class="card">
-<h3>Server Setup</h3>
-<p>Full Discord server setup with channels, categories and roles.</p>
-</div>
-
-<div class="card">
-<h3>Bot Configuration</h3>
-<p>Setup of moderation bots, ticket systems and leveling bots.</p>
-</div>
-
-<div class="card">
-<h3>Community Structure</h3>
-<p>Professional layout that helps your community grow.</p>
-</div>
-
-</div>
-
+        <div class="card">
+            <h3>Elite</h3>
+            <div class="price">€90 <span>/one-time</span></div>
+            <ul>
+                <li>Everything in Pro</li>
+                <li>Full Community Branding</li>
+                <li>Custom Economy/Leveling</li>
+                <li>Anti-Raid Security Suite</li>
+                <li>Staff Training Session</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <section id="portfolio" class="section">
-
-<h2>Portfolio</h2>
-
-<p>Examples of Discord servers I have created for communities and gaming groups.</p>
-
-<p>Clean channel structures, automated bots and professional server organization.</p>
-
+    <div class="section-title">
+        <h2>Recent Projects</h2>
+    </div>
+    <div class="portfolio-grid">
+        <div class="portfolio-item">[ Gaming Community Image ]</div>
+        <div class="portfolio-item">[ NFT/Business Project Image ]</div>
+    </div>
 </section>
 
-<section id="contact" class="section">
-
-<h2>Contact</h2>
-
-<p>If you want a professional Discord server feel free to contact me.</p>
-
-<p>Discord: <b>Shayv</b></p>
-
-<a class="btn" href="https://discord.gg/YOURINVITE">Join My Discord Server</a>
-
+<section id="contact" class="section" style="text-align:center;">
+    <div class="card" style="max-width:600px; margin: 0 auto;">
+        <h2>Ready to build?</h2>
+        <p>Direct Message me on Discord for a custom quote.</p>
+        <p style="font-size: 1.5rem; font-weight: 800;">Discord: @Shayv</p>
+        <br>
+        <a class="btn" href="https://discord.gg/YOURINVITE">Join the Hub</a>
+    </div>
 </section>
 
 <footer>
-
-<p>© 2026 Shayv | Discord Server Builder</p>
-
+    <p>© 2026 Shayv | Built for the next generation of communities.</p>
 </footer>
 
 </body>
