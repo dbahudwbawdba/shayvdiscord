@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shayv | Discord Server Creator</title>
+    <title>Shayv | Discord Creator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -67,16 +67,6 @@
             color: white;
         }
 
-        nav a {
-            margin-left: 20px;
-            color: var(--text-dim);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover { color: var(--primary); }
-
         .hero {
             text-align: center;
             padding: 100px 20px;
@@ -88,15 +78,19 @@
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 15px;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: white;
         }
 
         .hero p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 35px; }
 
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .btn {
-            background: var(--primary);
             padding: 14px 30px;
             border-radius: 10px;
             text-decoration: none;
@@ -107,13 +101,21 @@
             cursor: pointer;
         }
 
+        .btn-discord { background: var(--primary); }
+        .btn-fiverr { background: #1dbf73; } /* Fiverr Green */
+
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--primary-glow);
             filter: brightness(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        .section { padding: 80px 8%; }
+        .section { padding: 60px 8%; }
+
+        .pricing-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
         .cards {
             display: grid;
@@ -126,20 +128,14 @@
             padding: 35px;
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            flex-direction: column;
+            text-align: left;
         }
 
-        .card:hover { border-color: var(--primary); }
-
         .card h3 { font-size: 1.4rem; color: var(--primary); margin-top: 0; }
-
         .price { font-size: 2.2rem; font-weight: 800; margin: 10px 0; }
-
         .price span { font-size: 0.9rem; color: var(--text-dim); font-weight: 400; }
 
-        ul { list-style: none; padding: 0; margin: 20px 0; flex-grow: 1; }
-
+        ul { list-style: none; padding: 0; margin: 20px 0; }
         ul li {
             margin-bottom: 10px;
             color: var(--text-dim);
@@ -147,26 +143,29 @@
             display: flex;
             align-items: center;
         }
-
         ul li::before {
             content: "•";
             color: var(--primary);
-            font-weight: bold;
-            display: inline-block; 
-            width: 1em;
-            margin-left: 5px;
+            margin-right: 10px;
+        }
+
+        .order-notice {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 50px;
+            text-align: center;
         }
 
         footer {
             text-align: center;
             padding: 40px;
-            background: #05070a;
             color: var(--text-dim);
             font-size: 0.8rem;
         }
 
         @media (max-width: 600px) {
-            header { flex-direction: column; gap: 15px; }
             .hero { padding: 60px 20px; }
         }
     </style>
@@ -179,72 +178,76 @@
         <div class="logo-text">SHAYV</div>
     </a>
     <nav>
-        <a href="#services">Pakketten</a>
-        <a href="#contact">Contact</a>
+        <a href="https://discord.gg/YOURINVITE" target="_blank">Discord</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Geef je Discord een <span style="color:var(--primary)">Upgrade</span></h2>
-    <p>Ik bouw, installeer en pimpe professionele Discord servers voor creators en communities.</p>
-    <a class="btn" href="https://discord.gg/jouw-link-hier">Join Shayv - Discord SC</a>
+    <h2>Professional <span style="color:var(--primary)">Discord</span> Creation & Design</h2>
+    <p>I build, install, and "pimp" high-quality Discord servers tailored for your community or business.</p>
+    
+    <div class="btn-group">
+        <a class="btn btn-discord" href="https://discord.gg/YOURINVITE">Join Shayv - Discord SC</a>
+        <a class="btn btn-fiverr" href="https://www.fiverr.com/YOURUSERNAME" target="_blank">View on Fiverr</a>
+    </div>
 </section>
 
 <section id="services" class="section">
+    <div class="pricing-info">
+        <h2>Service Packages</h2>
+        <p>Choose the level of detail your community needs.</p>
+    </div>
+
     <div class="cards">
         <div class="card">
             <h3>Basic</h3>
-            <div class="price">€15 <span>/per server</span></div>
+            <div class="price">€15 <span>/Starting at</span></div>
             <ul>
-                <li>Simpele Server Setup</li>
-                <li>Basis Kanalen & Categorieën</li>
-                <li>Nette Rol Verdeling</li>
-                <li>Basis Permissies</li>
+                <li>Simple Server Setup</li>
+                <li>Clean Categories & Channels</li>
+                <li>Organized Role Hierarchy</li>
+                <li>Basic Permissions</li>
             </ul>
-            <a class="btn" style="background:#2d3748;" href="https://discord.gg/jouw-link-hier">Kies Basic</a>
         </div>
 
         <div class="card" style="border-color: var(--primary);">
             <h3>Standard</h3>
-            <div class="price">€45 <span>/per server</span></div>
+            <div class="price">€45 <span>/Starting at</span></div>
             <ul>
-                <li>Volledige Installatie & Setup</li>
-                <li>Bot Configuratie (Moderatie)</li>
-                <li>Ticket Systeem</li>
-                <li>Automatische Welkomstberichten</li>
+                <li>Full Installation & Setup</li>
+                <li>Moderation Bot Config</li>
+                <li>Professional Ticket System</li>
+                <li>Auto-Welcome Messages</li>
                 <li>Self-Roles Menu</li>
             </ul>
-            <a class="btn" href="https://discord.gg/jouw-link-hier">Kies Standard</a>
         </div>
 
         <div class="card">
             <h3>Premium</h3>
-            <div class="price">€90 <span>/per server</span></div>
+            <div class="price">€90 <span>/Starting at</span></div>
             <ul>
                 <li>Full Professional Community</li>
-                <li>Custom Design & Oppimpen</li>
-                <li>Geavanceerde Bot Logica</li>
-                <li>Leveling & Economy Systemen</li>
-                <li>Beveiliging tegen raids/spam</li>
-                <li>Staff-Training & Nazorg</li>
+                <li>Custom Visual Design</li>
+                <li>Advanced Bot Logic</li>
+                <li>Leveling & Economy Systems</li>
+                <li>Anti-Raid Security Suite</li>
+                <li>Staff Support & Training</li>
             </ul>
-            <a class="btn" style="background:#2d3748;" href="https://discord.gg/jouw-link-hier">Kies Premium</a>
+        </div>
+    </div>
+
+    <div class="order-notice">
+        <h3>How to Order</h3>
+        <p>Purchases cannot be made directly on this site. To start a project, please <b>open a ticket</b> in my Discord server or visit my Fiverr profile.</p>
+        <div class="btn-group" style="margin-top: 15px;">
+            <a class="btn btn-discord" href="https://discord.gg/YOURINVITE">Open Ticket</a>
+            <a class="btn btn-fiverr" href="https://www.fiverr.com/YOURUSERNAME">Fiverr Profile</a>
         </div>
     </div>
 </section>
 
-<section id="contact" class="section" style="text-align:center;">
-    <div style="background: var(--card-bg); padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);">
-        <h2>Interesse?</h2>
-        <p>Voor vragen of een server op maat kun je me bereiken via Discord.</p>
-        <p style="font-size: 1.2rem; font-weight: 700; color: var(--primary);">Shayv - Discord SC</p>
-        <br>
-        <a class="btn" href="https://discord.gg/jouw-link-hier">Stuur een bericht</a>
-    </div>
-</section>
-
 <footer>
-    <p>© 2026 Shayv | Discord Server Builder & Designer</p>
+    <p>© 2026 Shayv | Professional Discord Services</p>
 </footer>
 
 </body>
